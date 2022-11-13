@@ -13,15 +13,13 @@ const Login = () => {
   const navigate = useNavigate();
 
   const responseGoogle = (response) => {
-      console.log(response)
       const decode = jwtDecode(response.credential);
-      console.log(decode)
       const name = decode.name;
       const googleId = decode.sub;
       const imageUrl = decode.picture;
       
       localStorage.setItem('user',JSON.stringify(decode));
-      
+  
       const doc = {
       _id: googleId,
       _type: 'user',

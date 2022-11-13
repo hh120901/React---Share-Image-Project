@@ -9,16 +9,16 @@ const Pins = ({ user }) => {
 
   return (
     <div className='px-2 md:px-5'>
-      <div className='bg-red-500'>
-        <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm}></Navbar>
+      <div className='bg-gray-50 pt-1'>
+        <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} user={user}></Navbar>
       </div>
       <div  className='h-full'>
         <Routes >
-          <Route path='/' element ={<Feed></Feed>}/>
+          <Route path='/' element ={<Feed/>}/>
           <Route path='/category/:categoryId' element ={<Feed></Feed>}/>
           <Route path='/pin-detail/:pinId' element ={<PinDetail user={user}/>}/>
           <Route path='/create-pin' element ={<CreatePin user= {user}/>}/>
-          <Route path='/search' element ={<Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>}/>
+          <Route path='/search' element ={<Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />}/>
         </Routes>
       </div>
     </div>

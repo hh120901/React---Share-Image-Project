@@ -8,12 +8,12 @@ import { client } from '../client'
 import Pins from './Pins.jsx';
 import logo from '../assets/logo.png'
 import { userQuery } from '../utils/data';
+import { fetchUser } from '../utils/fetchUser';
 const Home = () => {
   const [toggleSidebar, settoggleSidebar] = useState(false);
   const [user, setUser] = useState()
   const scrollRef = useRef(null);
-  const userInfo = JSON.parse(localStorage.getItem('user'));
-  localStorage.clear();
+  const userInfo = JSON.parse(fetchUser());
 
   useEffect(()=>{
     const query = userQuery(userInfo?.sub);
@@ -27,6 +27,7 @@ const Home = () => {
   useEffect(()=>{
     scrollRef.current.scrollTo(0,0)
   },[]);
+  
   return (
     <div className='flex bg-gray-50 md:flex-row  flex-col h-screen transaction-height duration-75 ease-out'>
         <div className='hidden md:flex h-screeen flex-initial'>
@@ -49,7 +50,11 @@ const Home = () => {
               <div className='absolute w-full flex justify-end items-center p-2'> 
                 <AiFillCloseCircle fontSize={30}  className="cursor-pointer" onClick={()=>{settoggleSidebar(false)}}> </AiFillCloseCircle>
               </div>
-              <Sidebar user ={user && user} closeToggle/>
+              <Sidebar 
+                user ={user && user} 
+                closeToggle
+             
+              />
             </div>
           )}
         </div> 
