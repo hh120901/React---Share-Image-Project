@@ -16,7 +16,6 @@ const Pin = ({ pin: {postedBy, image, _id, destination, save }}) => {
   const user =  JSON.parse(fetchUser());
 
   const alreadySaved = !!(save?.filter((item) => item.postedBy._id === user.sub))?.length;
-  console.log(`alreadySaved: ${alreadySaved}`)
   const savePin = (id) =>{
     if(!alreadySaved){
       client  
@@ -50,7 +49,7 @@ const Pin = ({ pin: {postedBy, image, _id, destination, save }}) => {
       <div 
         onMouseEnter={()=> setPostHovered(true)}
         onMouseLeave={()=> setPostHovered(false)}
-        onClick={()=> Navigate(`/pin-detail/${_id}`)}
+        onClick={()=> navigate(`/pin-detail/${_id}`)}
         className="relative cusor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duratio-500 ease-in out"
       >
 

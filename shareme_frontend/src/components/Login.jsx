@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { GoogleLogin, googleLogout } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
 import jwtDecode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc'

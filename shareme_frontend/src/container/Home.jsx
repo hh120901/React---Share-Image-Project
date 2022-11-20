@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react'
 import { HiMenu } from 'react-icons/hi';
 import { AiFillCloseCircle} from 'react-icons/ai'
 import { Link, Route, Routes } from 'react-router-dom';
-import { Sidebar , UserProfile, Login }from '../components';
+import { Sidebar , Login, UserProfile }from '../components';
 import { client } from '../client'
 import Pins from './Pins.jsx';
 import logo from '../assets/logo.png'
@@ -60,7 +60,7 @@ const Home = () => {
         </div> 
         <div className='pb-2 flex-1 h-screen overflow-y-scroll' ref={scrollRef}>
           <Routes>
-            <Route path='/user-profile:userId' element={<UserProfile />}/>
+            <Route path='/user-profile/:userId' element={<UserProfile />}/>
             <Route path='/*' element={<Pins user ={user && user} />} />
           </Routes>
         </div> 
